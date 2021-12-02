@@ -1,6 +1,15 @@
+import Navigation from "./components/Navigation";
+import logo from './logo.png';
+
 function App() {
   return (
-    <h1>Hello from App</h1>
+    <div className='page-wrapper'>
+      <header className='header'>
+        <img className='header__logo' src={logo} alt='logo' />
+        <h1>Survey Tool</h1>
+      </header>
+      <Navigation />
+    </div>
   );
 }
 
