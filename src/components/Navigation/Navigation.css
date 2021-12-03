@@ -2,6 +2,23 @@
   color: #fff;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo {
+  width: 100px;
+}
+
+.header h1 {
+  font-size: 65px;
+  font-weight: 400;
+  color: #495057;
+  margin-left: 20px;
+}
+
 nav {
   width: 100%;
   display: flex;
