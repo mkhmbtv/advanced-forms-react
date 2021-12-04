@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import SurveyProvider from './context/SurveyContext';
 
 const Root = () => {
   return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <SurveyProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </SurveyProvider>
   );
 };
 

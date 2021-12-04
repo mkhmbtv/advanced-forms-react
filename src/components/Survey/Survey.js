@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Question from './Question';
+import { useResults } from '../../context/SurveyContext';
 import './Survey.css';
 
 const Survey = ({ survey }) => {
   const [values, setValues] = useState({});
   const [thankYouMessage, setThankYouMessage] = useState('');
   const [validationErrors, setValidationErrors] = useState({});
+  const { setResults } = useResults();
   const history = useHistory();
   const location = useLocation();
  
@@ -58,6 +60,9 @@ const Survey = ({ survey }) => {
       console.log('ANSWERS', surveyAnswers);
       setThankYouMessage(survey.thankyou);
     } else if (survey.id === 2) {
+      setResults({
+        ...values
+      });
       history.push('/report');
     }
 
