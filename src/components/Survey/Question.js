@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 
-const Question = ({ question, onChange, value, id }) => {
+const Question = ({ question, onChange, value, id, error }) => {
   switch (question.type) {
     case 'section': {
       return (
@@ -19,11 +19,13 @@ const Question = ({ question, onChange, value, id }) => {
                   type='radio'
                   onChange={onChange(id)}
                   value={option.value}
+                  checked={option.value === parseInt(value)}
                 />
                 {option.text}
               </label>
             </div>
           )}
+          <p style={{ color: 'red' }}>{error}</p>
         </>
       );
     }
@@ -40,6 +42,7 @@ const Question = ({ question, onChange, value, id }) => {
                 value={value}
               />
             </label>
+            <p style={{color: 'red'}}>{error}</p>
           </div>
         );
       } else {
@@ -54,6 +57,7 @@ const Question = ({ question, onChange, value, id }) => {
                 rows={question.lines}
               />
             </label>
+            <p style={{color: 'red'}}>{error}</p>
           </div>
         )
       }
@@ -74,6 +78,7 @@ const Question = ({ question, onChange, value, id }) => {
             <option value={4}>Agree</option>
             <option value={5}>Strongly Agree</option>
           </select>
+          <p style={{ color: 'red' }}>{error}</p>
         </div>
       )
     }
